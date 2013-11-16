@@ -101,11 +101,11 @@ def build(bld):
         tgt = task.outputs[0].abspath()
         return shutil.copy(src, tgt)
 
-    for i in bld.path.ant_glob('beatslasher.lv2/*.ttl'):
+    for i in bld.path.ant_glob('beatslash.lv2/*.ttl'):
         bld(rule   = do_copy,
             source = i,
-            target = bld.path.get_bld().make_node('beatslasher.lv2/%s' % i),
-            install_path = '${LV2DIR}/beatslasher.lv2')
+            target = bld.path.get_bld().make_node('beatslash.lv2/%s' % i),
+            install_path = '${LV2DIR}/beatslash.lv2')
 
 
 
@@ -116,7 +116,7 @@ def build(bld):
     '''.split()
 
     for i in plugins:
-        build_plugin(bld, 'beatslasher.lv2', i, ['src/%s.cpp' % i],
+        build_plugin(bld, 'beatslash.lv2', i, ['src/%s.cpp' % i],
                      ['-DPLUGIN_CLASS=%s' % i,
                       '-std=c++11',
                       '-DURI_PREFIX=\"http://github.com/blablack/beatslash.lv2/\"',
@@ -136,7 +136,7 @@ def build(bld):
     '''.split()
 
     for i in plugins:
-        build_plugin(bld, 'beatslasher.lv2', i, ['src/%s.cpp' % i],
+        build_plugin(bld, 'beatslash.lv2', i, ['src/%s.cpp' % i],
                      ['-DPLUGIN_CLASS=%s' % i,
                       '-std=c++11',
                       '-DURI_PREFIX=\"http://github.com/blablack/beatslash.lv2/\"',
@@ -160,7 +160,7 @@ def build(bld):
     '''.split()
 
     for i in plugins_gui:
-       build_plugin_gui(bld, 'beatslasher.lv2', i, ['src/%s.cpp' % i],
+       build_plugin_gui(bld, 'beatslash.lv2', i, ['src/%s.cpp' % i],
                         ['-DPLUGIN_CLASS=%s' % i,
                          '-std=c++11',
                          '-DURI_PREFIX=\"http://github.com/blablack/beatslash.lv2/\"',
