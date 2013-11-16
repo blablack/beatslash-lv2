@@ -1,5 +1,5 @@
-#ifndef avw_lv__downsampler_stereo_ttl_hpp
-#define avw_lv__downsampler_stereo_ttl_hpp
+#ifndef beatslash_lv__downsampler_stereo_ttl_hpp
+#define beatslash_lv__downsampler_stereo_ttl_hpp
 
 
 #ifndef PEG_STRUCT
@@ -28,12 +28,12 @@ enum p_port_enum {
 };
 
 static const peg_data_t p_ports[] = {
-  { 1, 10, 1, 0, 0, 0 },
-  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 },
-  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 },
-  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 },
-  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 },
+  { 1, 10, 1, 0, 0, 0 }, 
+  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
 };
 
 
-#endif /* avw_lv__downsampler_stereo_ttl_hpp */
+#endif /* beatslash_lv__downsampler_stereo_ttl_hpp */

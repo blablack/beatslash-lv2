@@ -1,5 +1,5 @@
-#ifndef avw_lv__granulator_mono_ttl_hpp
-#define avw_lv__granulator_mono_ttl_hpp
+#ifndef beatslash_lv__granulator_mono_ttl_hpp
+#define beatslash_lv__granulator_mono_ttl_hpp
 
 
 #ifndef PEG_STRUCT
@@ -32,16 +32,16 @@ enum p_port_enum {
 };
 
 static const peg_data_t p_ports[] = {
-  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 },
-  { -10, 10, 1, 0, 0, 0 },
-  { 6, 10000, 10, 0, 0, 0 },
-  { 3, 100, 4, 0, 0, 0 },
-  { 3, 100, 4, 0, 0, 0 },
-  { 1, 10000, 10, 0, 0, 0 },
-  { 2, 10000, 100, 0, 0, 0 },
-  { -10, 10, 1, 0, 0, 0 },
-  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 },
+  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+  { -10, 10, 1, 0, 0, 0 }, 
+  { 6, 10000, 10, 0, 0, 0 }, 
+  { 3, 100, 4, 0, 0, 0 }, 
+  { 3, 100, 4, 0, 0, 0 }, 
+  { 1, 10000, 10, 0, 0, 0 }, 
+  { 2, 10000, 100, 0, 0, 0 }, 
+  { -10, 10, 1, 0, 0, 0 }, 
+  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
 };
 
 
-#endif /* avw_lv__granulator_mono_ttl_hpp */
+#endif /* beatslash_lv__granulator_mono_ttl_hpp */

@@ -1,5 +1,5 @@
-#ifndef avw_lv__beatrepeater_mono_ttl_hpp
-#define avw_lv__beatrepeater_mono_ttl_hpp
+#ifndef beatslash_lv__beatrepeater_mono_ttl_hpp
+#define beatslash_lv__beatrepeater_mono_ttl_hpp
 
 
 #ifndef PEG_STRUCT
@@ -31,15 +31,15 @@ enum p_port_enum {
 };
 
 static const peg_data_t p_ports[] = {
-  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 },
-  { 0, 1, 0, 0, 0, 0 },
-  { 40, 320, 120, 0, 0, 0 },
-  { 0.03125, 32, 1, 0, 0, 0 },
-  { 3, 25, 7, 0, 0, 0 },
-  { 3, 25, 7, 0, 0, 0 },
-  { 0, 1, 0, 1, 0, 0 },
-  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 },
+  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+  { 0, 1, 0, 0, 0, 0 }, 
+  { 40, 320, 120, 0, 0, 0 }, 
+  { 0.03125, 32, 1, 0, 0, 0 }, 
+  { 3, 25, 7, 0, 0, 0 }, 
+  { 3, 25, 7, 0, 0, 0 }, 
+  { 0, 1, 0, 1, 0, 0 }, 
+  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
 };
 
 
-#endif /* avw_lv__beatrepeater_mono_ttl_hpp */
+#endif /* beatslash_lv__beatrepeater_mono_ttl_hpp */
