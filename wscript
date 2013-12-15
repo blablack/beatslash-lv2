@@ -109,26 +109,7 @@ def build(bld):
 
 
 
-
     plugins = '''
-    downsampler_mono
-    downsampler_stereo
-    '''.split()
-
-    for i in plugins:
-        build_plugin(bld, 'beatslash.lv2', i, ['src/%s.cpp' % i],
-                     ['-DPLUGIN_CLASS=%s' % i,
-                      '-std=c++11',
-                      '-DURI_PREFIX=\"http://github.com/blablack/beatslash.lv2/\"',
-                      '-DPLUGIN_URI_SUFFIX="%s"' % i,
-                      '-DPLUGIN_HEADER="src/%s.hpp"' % i],
-                     ['LV2', 'LVTK_PLUGIN'],
-                     [])
-
-
-    plugins = '''
-    granulator_mono
-    granulator_stereo
     beatrepeater_mono
     beatrepeater_stereo
     beatslicer_mono
@@ -149,10 +130,6 @@ def build(bld):
 
 
     plugins_gui = '''
-    downsampler_mono_gui
-    downsampler_stereo_gui
-    granulator_mono_gui
-    granulator_stereo_gui
     beatrepeater_mono_gui
     beatrepeater_stereo_gui
     beatslicer_mono_gui

@@ -7,8 +7,6 @@ They are meant to be used live, but it is up to your imagination what to do!
 The set contains:
 - Beat Repeater
 - Beat Slicer
-- DownSampler
-- Granulator
 
 More information can be found here:
 [http://objectivewave.wordpress.com/beatslash-lv2](http://objectivewave.wordpress.com/beatslash-lv2)

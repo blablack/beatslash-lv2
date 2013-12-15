@@ -8,7 +8,7 @@
 	a doap:Project ;
 	lv2:symbol "beatslash" ;
 	doap:name "Beat Slash LV2" ;
-	doap:shortdesc "An LV2 port of the AMS internal modules." ;
+	doap:shortdesc "Beat Manipulator." ;
 	doap:homepage <http://avwlv2.sourceforge.net/> ;
 	doap:license <http://opensource.org/licenses/isc> ;
 	doap:maintainer [
@@ -25,26 +25,6 @@
 	a lv2:Plugin ;
 	lv2:binary <beatrepeater_stereo.so>  ;
 	rdfs:seeAlso <beatrepeater_stereo.ttl> .
-
-<http://github.com/blablack/beatslash.lv2/downsampler_mono>
-	a lv2:Plugin ;
-	lv2:binary <downsampler_mono.so>  ;
-	rdfs:seeAlso <downsampler_mono.ttl> .
-
-<http://github.com/blablack/beatslash.lv2/downsampler_stereo>
-	a lv2:Plugin ;
-	lv2:binary <downsampler_stereo.so>  ;
-	rdfs:seeAlso <downsampler_stereo.ttl> .
-
-<http://github.com/blablack/beatslash.lv2/granulator_mono>
-	a lv2:Plugin ;
-	lv2:binary <granulator_mono.so>  ;
-	rdfs:seeAlso <granulator_mono.ttl> .
-
-<http://github.com/blablack/beatslash.lv2/granulator_stereo>
-	a lv2:Plugin ;
-	lv2:binary <granulator_stereo.so>  ;
-	rdfs:seeAlso <granulator_stereo.ttl> .
 
 <http://github.com/blablack/beatslash.lv2/beatslicer_mono>
 	a lv2:Plugin ;
