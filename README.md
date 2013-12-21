@@ -1,7 +1,7 @@
 beatslash-lv2
 =============
 
-beatslash.lv2 is a set of LV2 plugins to mangle, slash, repeat and do much more with your beats.
+beatslash-lv2 is a set of LV2 plugins to mangle, slash, repeat and do much more with your beats.
 They are meant to be used live, but it is up to your imagination what to do!
 
 The set contains:
