@@ -171,5 +171,5 @@ void BeatRepeaterMono::run(uint32_t nframes)
 }
 
 
-static int _ = BeatRepeaterMono::register_class("http://github.com/blablack/beatslash.lv2/beatrepeater_mono");
+static int _ = BeatRepeaterMono::register_class("http://github.com/blablack/beatslash-lv2/beatrepeater_mono");
 

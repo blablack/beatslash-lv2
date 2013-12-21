@@ -11,17 +11,17 @@
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 @prefix guiext: <http://lv2plug.in/ns/extensions/ui#> .
 
-<http://github.com/blablack/beatslash.lv2/beatslicer_stereo/gui>
+<http://github.com/blablack/beatslash-lv2/beatslicer_stereo/gui>
   a guiext:GtkUI ;
   guiext:binary <beatslicer_stereo_gui.so> .
 
-<http://github.com/blablack/beatslash.lv2/beatslicer_stereo>
+<http://github.com/blablack/beatslash-lv2/beatslicer_stereo>
 	a lv2:Plugin ;
-	lv2:project <http://github.com/blablack/beatslash.lv2/> ;
+	lv2:project <http://github.com/blablack/beatslash-lv2/> ;
 	doap:name "Beat Slicer - Stereo" ;
 	doap:license <http://opensource.org/licenses/isc> ;
 	ll:pegName "p" ;
-	guiext:ui <http://github.com/blablack/beatslash.lv2/beatslicer_stereo/gui> ;
+	guiext:ui <http://github.com/blablack/beatslash-lv2/beatslicer_stereo/gui> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:port  [
 		a lv2:InputPort, lv2:AudioPort ;

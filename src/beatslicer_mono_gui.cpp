@@ -119,4 +119,4 @@ void BeatSlicerMonoGUI::port_event(uint32_t port, uint32_t buffer_size, uint32_t
 	}
 }
 
-static int _ = BeatSlicerMonoGUI::register_class("http://github.com/blablack/beatslash.lv2/beatslicer_mono/gui");
+static int _ = BeatSlicerMonoGUI::register_class("http://github.com/blablack/beatslash-lv2/beatslicer_mono/gui");

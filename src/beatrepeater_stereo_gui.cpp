@@ -98,4 +98,4 @@ void BeatRepeaterStereoGUI::port_event(uint32_t port, uint32_t buffer_size, uint
 	}
 }
 
-static int _ = BeatRepeaterStereoGUI::register_class("http://github.com/blablack/beatslash.lv2/beatrepeater_stereo/gui");
+static int _ = BeatRepeaterStereoGUI::register_class("http://github.com/blablack/beatslash-lv2/beatrepeater_stereo/gui");

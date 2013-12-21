@@ -1,4 +1,4 @@
-beatslash.lv2
+beatslash-lv2
 =============
 
 beatslash.lv2 is a set of LV2 plugins to mangle, slash, repeat and do much more with your beats.
@@ -32,7 +32,7 @@ More information about Ingen here: [http://drobilla.net/software/ingen/](http://
 BUG REPORTING
 -------------
 Please use the issue tracker on github to report bugs:
-[http://github.com/blablack/beatslash.lv2/issues](http://github.com/blablack/beatslash.lv2/issues)
+[http://github.com/blablack/beatslash-lv2/issues](http://github.com/blablack/beatslash-lv2/issues)
 
 
 

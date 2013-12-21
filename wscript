@@ -6,7 +6,7 @@ from waflib import Logs
 from waflib.extras import autowaf as autowaf
 
 # Variables for 'waf dist'
-APPNAME = 'beatslash.lv2'
+APPNAME = 'beatslash-lv2'
 VERSION = '1.0.0'
 
 # Mandatory variables
@@ -21,7 +21,7 @@ def options(opt):
 
 def configure(conf):
     autowaf.configure(conf)
-    autowaf.display_header('BeatSlash Configuration')
+    autowaf.display_header('beatslash-lv2 Configuration')
 
     conf.load('compiler_cxx')
 
@@ -120,7 +120,7 @@ def build(bld):
         build_plugin(bld, 'beatslash.lv2', i, ['src/%s.cpp' % i],
                      ['-DPLUGIN_CLASS=%s' % i,
                       '-std=c++11',
-                      '-DURI_PREFIX=\"http://github.com/blablack/beatslash.lv2/\"',
+                      '-DURI_PREFIX=\"http://github.com/blablack/beatslash-lv2/\"',
                       '-DPLUGIN_URI_SUFFIX="%s"' % i,
                       '-DPLUGIN_HEADER="src/%s.hpp"' % i],
                      ['LV2', 'LVTK_PLUGIN'],
@@ -140,7 +140,7 @@ def build(bld):
        build_plugin_gui(bld, 'beatslash.lv2', i, ['src/%s.cpp' % i],
                         ['-DPLUGIN_CLASS=%s' % i,
                          '-std=c++11',
-                         '-DURI_PREFIX=\"http://github.com/blablack/beatslash.lv2/\"',
+                         '-DURI_PREFIX=\"http://github.com/blablack/beatslash-lv2/\"',
                          '-DPLUGIN_URI_SUFFIX="%s"' % i,
                          '-DPLUGIN_HEADER="src/%s.hpp"' % i],
                         ['LV2', 'LVTK_PLUGIN', 'LVTK_GTKGUI', 'GTKMM', 'GTK2', 'CAIRO'],

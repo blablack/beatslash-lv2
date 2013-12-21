@@ -190,5 +190,5 @@ void BeatSlicerStereo::giveMeReverse(int ReverseMode)
 	}
 }
 
-static int _ = BeatSlicerStereo::register_class("http://github.com/blablack/beatslash.lv2/beatslicer_stereo");
+static int _ = BeatSlicerStereo::register_class("http://github.com/blablack/beatslash-lv2/beatslicer_stereo");
 

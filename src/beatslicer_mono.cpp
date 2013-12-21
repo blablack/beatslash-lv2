@@ -180,5 +180,5 @@ void BeatSlicerMono::giveMeReverse(int ReverseMode)
 	}
 }
 
-static int _ = BeatSlicerMono::register_class("http://github.com/blablack/beatslash.lv2/beatslicer_mono");
+static int _ = BeatSlicerMono::register_class("http://github.com/blablack/beatslash-lv2/beatslicer_mono");
 

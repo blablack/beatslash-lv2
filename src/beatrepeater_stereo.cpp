@@ -178,5 +178,5 @@ void BeatRepeaterStereo::run(uint32_t nframes)
 }
 
 
-static int _ = BeatRepeaterStereo::register_class("http://github.com/blablack/beatslash.lv2/beatrepeater_stereo");
+static int _ = BeatRepeaterStereo::register_class("http://github.com/blablack/beatslash-lv2/beatrepeater_stereo");
 

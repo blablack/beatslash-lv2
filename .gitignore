@@ -1,7 +1,7 @@
 # Files
 .lock-waf_linux2_build
-beatslash.lv2.cbp
-beatslash.lv2.layout
+beatslash-lv2.cbp
+beatslash-lv2.layout
 debug_ingen.sh
 debug_jalv.sh
 
