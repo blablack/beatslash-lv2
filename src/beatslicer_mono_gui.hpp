@@ -23,13 +23,6 @@ class BeatSlicerMonoGUI: public UI<BeatSlicerMonoGUI, GtkUI<true>>
 		Gtk::ComboBoxText* m_comboReverseMode;
 		LabeledDial* m_dialAttack;
 		LabeledDial* m_dialRelease;
-
-
-		float get_tempo();
-		float get_sliceSize();
-		float get_sampleSize();
-		float get_attack();
-		float get_release();
 };
 
 #endif

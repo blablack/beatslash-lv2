@@ -22,12 +22,6 @@ class BeatRepeaterStereoGUI: public UI<BeatRepeaterStereoGUI, GtkUI<true>>
 		LabeledDial* m_dialTempo;
 		LabeledDial* m_dialAttack;
 		LabeledDial* m_dialRelease;
-
-
-		float get_beatSize();
-		float get_tempo();
-		float get_attack();
-		float get_release();
 };
 
 #endif
