@@ -26,7 +26,7 @@ BeatSlicerStereoGUI::BeatSlicerStereoGUI(const std::string& URI)
     m_dialTempo->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &BeatSlicerStereoGUI::write_control), p_tempo), mem_fun(*m_dialTempo, &LabeledDial::get_value)));
     p_beatBox->pack_start(*m_dialTempo);
 
-    m_dialSliceSize = new LabeledDial("Slice Size", p_sliceSize, 0.03125, 0.5, NORMAL, 0.03125, 5);
+    m_dialSliceSize = new LabeledDial("Slice Size", p_sliceSize, 0.0078125, 128, MULTIPLIER, 0.0078125, 7);
     m_dialSliceSize->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &BeatSlicerStereoGUI::write_control), p_sliceSize), mem_fun(*m_dialSliceSize, &LabeledDial::get_value)));
     p_beatBox->pack_start(*m_dialSliceSize);
 
@@ -56,7 +56,7 @@ BeatSlicerStereoGUI::BeatSlicerStereoGUI(const std::string& URI)
     p_envelopeFrame->pack_start(*m_dialAttack);
 
     m_dialRelease = new LabeledDial("Release", p_release, 3, 25, NORMAL, 1, 0);
-    m_dialAttack->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &BeatSlicerStereoGUI::write_control), p_release), mem_fun(*m_dialAttack,  &LabeledDial::get_value)));
+    m_dialRelease->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &BeatSlicerStereoGUI::write_control), p_release), mem_fun(*m_dialRelease,  &LabeledDial::get_value)));
     p_envelopeFrame->pack_start(*m_dialRelease);
 
     p_mainWidget->pack_start(*p_envelopeFrame);

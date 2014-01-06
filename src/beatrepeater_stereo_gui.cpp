@@ -11,10 +11,10 @@
 
 BeatRepeaterStereoGUI::BeatRepeaterStereoGUI(const std::string& URI)
 {
-	EventBox *p_background = manage (new EventBox());
-	Gdk::Color* color = new  Gdk::Color();
-	color->set_rgb(7710, 8738, 9252);
-	p_background->modify_bg(Gtk::STATE_NORMAL, *color);
+    EventBox *p_background = manage (new EventBox());
+    Gdk::Color* color = new  Gdk::Color();
+    color->set_rgb(7710, 8738, 9252);
+    p_background->modify_bg(Gtk::STATE_NORMAL, *color);
 
 
     VBox *p_mainWidget = manage (new VBox(false));
@@ -23,13 +23,13 @@ BeatRepeaterStereoGUI::BeatRepeaterStereoGUI(const std::string& URI)
     MyBox *p_beatBox = manage (new MyBox("Beat", Gtk::Orientation::ORIENTATION_VERTICAL));
     HBox *p_beatDials = manage(new HBox(false));
 
-	m_dialBeatSize = new LabeledDial("Beat Size", p_beatSize, 0.03125, 32, NORMAL, 0.03125, 5);
-    m_dialBeatSize->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &BeatRepeaterStereoGUI::write_control), p_beatSize), mem_fun(*m_dialBeatSize,  &LabeledDial::get_value)));
-    p_beatDials->pack_start(*m_dialBeatSize, Gtk::PACK_EXPAND_PADDING, 0);
-
     m_dialTempo = new LabeledDial("Tempo", p_tempo, 40, 320, NORMAL, 1, 0);
     m_dialTempo->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &BeatRepeaterStereoGUI::write_control), p_tempo), mem_fun(*m_dialTempo,  &LabeledDial::get_value)));
     p_beatDials->pack_start(*m_dialTempo, Gtk::PACK_EXPAND_PADDING, 0);
+
+    m_dialBeatSize = new LabeledDial("Beat Size", p_beatSize, 0.0078125, 128, MULTIPLIER, 0.0078125, 7);
+    m_dialBeatSize->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &BeatRepeaterStereoGUI::write_control), p_beatSize), mem_fun(*m_dialBeatSize,  &LabeledDial::get_value)));
+    p_beatDials->pack_start(*m_dialBeatSize, Gtk::PACK_EXPAND_PADDING, 0);
 
     p_beatBox->pack_start(*p_beatDials);
 
@@ -52,18 +52,18 @@ BeatRepeaterStereoGUI::BeatRepeaterStereoGUI(const std::string& URI)
     m_dialRelease->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &BeatRepeaterStereoGUI::write_control), p_release), mem_fun(*m_dialRelease,  &LabeledDial::get_value)));
     p_envelopeFrame->pack_start(*m_dialRelease);
 
-	p_mainWidget->pack_start(*p_envelopeFrame);
+    p_mainWidget->pack_start(*p_envelopeFrame);
 
 
-	p_background->add(*p_mainWidget);
-	add(*p_background);
+    p_background->add(*p_mainWidget);
+    add(*p_background);
 
-	Gtk::manage(p_mainWidget);
+    Gtk::manage(p_mainWidget);
 }
 
 void BeatRepeaterStereoGUI::port_event(uint32_t port, uint32_t buffer_size, uint32_t format, const void* buffer)
 {
-	   switch(port)
+    switch(port)
     {
     case p_reverse:
         m_checkReverse->set_active(*static_cast<const float*> (buffer) == 1);
