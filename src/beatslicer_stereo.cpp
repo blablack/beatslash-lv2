@@ -122,7 +122,9 @@ void BeatSlicerStereo::run(uint32_t nframes)
             if(!m_reverse)
                 m_calculatedReadingPosition = m_positionStart + m_readingPosition;
             else
-                m_calculatedReadingPosition = m_positionStart - m_readingPosition;
+                m_calculatedReadingPosition = m_positionStart - m_readingPosition + 1;
+
+            std::cout << m_calculatedReadingPosition << std::endl;
 
             if(m_fadePosition < m_attack)
             {
@@ -148,7 +150,7 @@ void BeatSlicerStereo::run(uint32_t nframes)
             if(!m_reverse)
                 m_calculatedReadingPosition = m_positionStart + m_readingPosition;
             else
-                m_calculatedReadingPosition = m_positionStart - m_readingPosition;
+                m_calculatedReadingPosition = m_positionStart - m_readingPosition + 1;
 
             p(p_outputL)[n] = m_readingSampleL[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_inputL)[n] * m_fadeIn[m_fadePosition];
             p(p_outputR)[n] = m_readingSampleR[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_inputR)[n] * m_fadeIn[m_fadePosition];

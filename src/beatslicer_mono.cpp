@@ -116,7 +116,7 @@ void BeatSlicerMono::run(uint32_t nframes)
             if(!m_reverse)
                 m_calculatedReadingPosition = m_positionStart + m_readingPosition;
             else
-                m_calculatedReadingPosition = m_positionStart - m_readingPosition;
+                m_calculatedReadingPosition = m_positionStart - m_readingPosition + 1;
 
             if(m_fadePosition < m_attack)
             {
@@ -140,7 +140,7 @@ void BeatSlicerMono::run(uint32_t nframes)
             if(!m_reverse)
                 m_calculatedReadingPosition = m_positionStart + m_readingPosition;
             else
-                m_calculatedReadingPosition = m_positionStart - m_readingPosition;
+                m_calculatedReadingPosition = m_positionStart - m_readingPosition + 1;
 
             p(p_output)[n] = m_readingSample[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_input)[n] * m_fadeIn[m_fadePosition];
 
