@@ -76,18 +76,28 @@ void BeatSlicerMono::run(uint32_t nframes)
 
     for (unsigned int n = 0; n < nframes; n++)
     {
-        if (!m_gate && (p(p_gate)[n] > 0.5))
+        if(m_sampleFull)
         {
-            m_gate = true;
-            if(m_sampleFull)
+            if (!m_gate && (p(p_gate)[n] > 0.5))
+            {
+                m_gate = true;
+
                 m_readingSample = m_sample;
-            giveMeReverse(int(*p(p_reverseMode)));
-            m_readingPosition = 0;
-            m_fadePosition = 0;
-            m_fadeOut = gen_release(m_attack);
-            m_slicing = true;
+
+                giveMeReverse(int(*p(p_reverseMode)));
+                m_readingPosition = 0;
+                m_fadePosition = 0;
+                m_fadeOut = gen_release(m_attack);
+                m_slicing = true;
+            }
+            else if(m_gate && (p(p_gate)[n] < 0.5))
+            {
+                m_gate = false;
+                m_fadePosition = 0;
+                m_fadeOut = gen_release(m_envelope[m_readingPosition], m_attack);
+            }
         }
-        else if(m_gate && (p(p_gate)[n] < 0.5))
+        else
         {
             m_gate = false;
             m_fadePosition = 0;
@@ -125,32 +135,29 @@ void BeatSlicerMono::run(uint32_t nframes)
                 giveMeReverse(int(*p(p_reverseMode)));
             }
         }
+        else if(m_slicing && m_sampleFull)
+        {
+            if(!m_reverse)
+                m_calculatedReadingPosition = m_positionStart + m_readingPosition;
+            else
+                m_calculatedReadingPosition = m_positionStart - m_readingPosition;
+
+            p(p_output)[n] = m_readingSample[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_input)[n] * m_fadeIn[m_fadePosition];
+
+            m_fadePosition++;
+            if(m_fadePosition >= m_attack)
+                m_slicing = false;
+
+            m_readingPosition++;
+            if(m_readingPosition > m_readingSampleSize)
+            {
+                m_readingPosition = 0;
+                giveMeReverse(int(*p(p_reverseMode)));
+            }
+        }
         else
         {
-            if(m_slicing && m_sampleFull)
-            {
-                if(!m_reverse)
-                    m_calculatedReadingPosition = m_positionStart + m_readingPosition;
-                else
-                    m_calculatedReadingPosition = m_positionStart - m_readingPosition;
-
-                p(p_output)[n] = m_readingSample[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_input)[n] * m_fadeIn[m_fadePosition];
-
-                m_fadePosition++;
-                if(m_fadePosition >= m_attack)
-                    m_slicing = false;
-
-                m_readingPosition++;
-                if(m_readingPosition > m_readingSampleSize)
-                {
-                    m_readingPosition = 0;
-                    giveMeReverse(int(*p(p_reverseMode)));
-                }
-            }
-            else
-            {
-                p(p_output)[n] = p(p_input)[n];
-            }
+            p(p_output)[n] = p(p_input)[n];
         }
     }
 }

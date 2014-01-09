@@ -13,7 +13,7 @@ using namespace lvtk;
 BeatSlicerStereo::BeatSlicerStereo(double rate)
     : Plugin<BeatSlicerStereo>(p_n_ports)
 {
-        m_rate = rate;
+    m_rate = rate;
 
     // 60 / tempo * rate * sampleSize
     m_sampleFullSize = int(60 * m_rate * 4 / 120 + 0.5);
@@ -79,21 +79,29 @@ void BeatSlicerStereo::run(uint32_t nframes)
 
     for (unsigned int n = 0; n < nframes; n++)
     {
-        if (!m_gate && (p(p_gate)[n] > 0.5))
+        if(m_sampleFull)
         {
-            m_gate = true;
-            if(m_sampleFull)
+            if (!m_gate && (p(p_gate)[n] > 0.5))
             {
+                m_gate = true;
+
                 m_readingSampleL = m_sampleL;
                 m_readingSampleR = m_sampleR;
+
+                giveMeReverse(int(*p(p_reverseMode)));
+                m_readingPosition = 0;
+                m_fadePosition = 0;
+                m_fadeOut = gen_release(m_attack);
+                m_slicing = true;
             }
-            giveMeReverse(int(*p(p_reverseMode)));
-            m_readingPosition = 0;
-            m_fadePosition = 0;
-            m_fadeOut = gen_release(m_attack);
-            m_slicing = true;
+            else if(m_gate && (p(p_gate)[n] < 0.5))
+            {
+                m_gate = false;
+                m_fadePosition = 0;
+                m_fadeOut = gen_release(m_envelope[m_readingPosition], m_attack);
+            }
         }
-        else if(m_gate && (p(p_gate)[n] < 0.5))
+        else
         {
             m_gate = false;
             m_fadePosition = 0;
@@ -135,34 +143,31 @@ void BeatSlicerStereo::run(uint32_t nframes)
                 giveMeReverse(int(*p(p_reverseMode)));
             }
         }
+        else if(m_slicing && m_sampleFull)
+        {
+            if(!m_reverse)
+                m_calculatedReadingPosition = m_positionStart + m_readingPosition;
+            else
+                m_calculatedReadingPosition = m_positionStart - m_readingPosition;
+
+            p(p_outputL)[n] = m_readingSampleL[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_inputL)[n] * m_fadeIn[m_fadePosition];
+            p(p_outputR)[n] = m_readingSampleR[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_inputR)[n] * m_fadeIn[m_fadePosition];
+
+            m_fadePosition++;
+            if(m_fadePosition >= m_attack)
+                m_slicing = false;
+
+            m_readingPosition++;
+            if(m_readingPosition > m_readingSampleSize)
+            {
+                m_readingPosition = 0;
+                giveMeReverse(int(*p(p_reverseMode)));
+            }
+        }
         else
         {
-            if(m_slicing && m_sampleFull)
-            {
-                if(!m_reverse)
-                    m_calculatedReadingPosition = m_positionStart + m_readingPosition;
-                else
-                    m_calculatedReadingPosition = m_positionStart - m_readingPosition;
-
-                p(p_outputL)[n] = m_readingSampleL[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_inputL)[n] * m_fadeIn[m_fadePosition];
-                p(p_outputR)[n] = m_readingSampleR[m_calculatedReadingPosition] * m_fadeOut[m_fadePosition] +  p(p_inputR)[n] * m_fadeIn[m_fadePosition];
-
-                m_fadePosition++;
-                if(m_fadePosition >= m_attack)
-                    m_slicing = false;
-
-                m_readingPosition++;
-                if(m_readingPosition > m_readingSampleSize)
-                {
-                    m_readingPosition = 0;
-                    giveMeReverse(int(*p(p_reverseMode)));
-                }
-            }
-            else
-            {
-                p(p_outputL)[n] = p(p_inputL)[n];
-                p(p_outputR)[n] = p(p_inputR)[n];
-            }
+            p(p_outputL)[n] = p(p_inputL)[n];
+            p(p_outputR)[n] = p(p_inputR)[n];
         }
     }
 }
