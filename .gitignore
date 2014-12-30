@@ -4,6 +4,11 @@ beatslash-lv2.cbp
 beatslash-lv2.layout
 debug_ingen.sh
 debug_jalv.sh
+beatslash-lv2.config
+beatslash-lv2.creator
+beatslash-lv2.creator.user
+beatslash-lv2.files
+beatslash-lv2.includes
 
 
 # Directory
