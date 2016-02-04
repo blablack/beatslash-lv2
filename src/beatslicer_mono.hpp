@@ -2,7 +2,7 @@
 #define BEATSLICER_MONO_H
 
 #include <deque>
-#include <lvtk-1/lvtk/plugin.hpp>
+#include <lvtk-2/lvtk/plugin.hpp>
 
 #include "beatslicer_mono_ttl.hpp"
 
