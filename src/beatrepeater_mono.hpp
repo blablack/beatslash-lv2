@@ -1,7 +1,7 @@
 #ifndef BEATSLICER_MONO_H
 #define BEATSLICER_MONO_H
 
-#include <lvtk-1/lvtk/plugin.hpp>
+#include <lvtk-2/lvtk/plugin.hpp>
 
 #include "beatrepeater_mono_ttl.hpp"
 
