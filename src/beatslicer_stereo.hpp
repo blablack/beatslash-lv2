@@ -2,7 +2,7 @@
 #define BEATSLICER_STEREO_H
 
 #include <deque>
-#include <lvtk-2/lvtk/plugin.hpp>
+#include <lvtk-1/lvtk/plugin.hpp>
 
 #include "beatslicer_stereo_ttl.hpp"
 
