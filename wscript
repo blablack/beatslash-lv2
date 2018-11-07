@@ -107,7 +107,7 @@ def build(bld):
         bld(features     = 'subst',
             is_copy      = True,
             source       = i,
-            target       = bld.path.get_bld().make_node('beatslash.lv2/%s' % i),
+            target       = 'beatslash.lv2/%s' % i.name,
             install_path = '${LV2DIR}/beatslash.lv2')
 
 
