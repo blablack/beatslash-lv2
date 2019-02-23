@@ -7,7 +7,7 @@ from waflib.extras import autowaf as autowaf
 
 # Variables for 'waf dist'
 APPNAME = 'beatslash-lv2'
-VERSION = '1.0.5'
+VERSION = '1.0.6'
 
 # Mandatory variables
 top = '.'
