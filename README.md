@@ -11,6 +11,11 @@ The set contains:
 More information can be found here:
 [http://objectivewave.wordpress.com/beatslash-lv2](http://objectivewave.wordpress.com/beatslash-lv2)
 
+DEPENDENCIES
+------------
+
+	libgtkmm-2.4-dev
+	lvtk-dev
 
 INSTALL
 -------
